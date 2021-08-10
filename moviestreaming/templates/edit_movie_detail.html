@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale = 1.0">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Movie Streaming</title>
+</head>
+<body>
+<div class="main">
+    <div class="header">
+
+    </div>
+    <div class="content">
+        <form method="post" action="{% url 'moviestreaming:save_edit_movie_detail' %}">
+            {% csrf_token %}
+            <label for="movie-title">Movie Title</label>
+                                                <input value="{{ movie.title }}" type="text" id="movie-title" name="movie-title"
+                                                       class="form-control"
+                                                       placeholder="Movie Title" required>
+            <label for="description">Description</label>
+                                                <input value="{{ movie.description }}" type="text" id="description" name="description"
+                                                       class="form-control"
+                                                       placeholder="Description" required>
+            <label class="form-label" for="movie-link">Enter URL of
+                                                Movie</label>
+                                            <input value="{{ movie.movie_url }}" type="url" name="movie-link" class="form-control"
+                                                   id="movie-link"/>
+
+            <input hidden type="text" id="movie-id" name="movie-id"
+                                              value="{{ movie.id }}">
+
+            <input type="submit">
+        </form>
+
+    </div>
+    <div class="footer"></div>
+
+
+</div>
+
+
+</body>
+</html>

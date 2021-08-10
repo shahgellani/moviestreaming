@@ -1,0 +1,141 @@
+<div class="content">
+    <h1>
+        {% if Added %}
+            {{ Added }}
+        {% endif %}
+
+    </h1>
+    <div class="register">
+        <a href="#register-User" data-toggle="modal"><i class="fa fa-user-plus"></i> Register User</a>
+
+
+    </div>
+    <div class="addmovie">
+        <a href="#Add-Movie" data-toggle="modal"><i class="fa fa-user-plus"></i> Add Movie</a>
+
+
+    </div>
+    <div class="modal fade" id="register-User">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content form-wrapper">
+                <div class="close-box" data-dismiss="modal">
+                    <i class="fa fa-times fa-2x"></i>
+                </div>
+                <div class="container-fluid mt-5">
+                    <form action="registration" method="post" id="RegisterationForm">
+                        {% csrf_token %}
+                        <div class="form-group text-center pb-2">
+                            <h4>Registration Form</h4>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="first_name">First Name</label>
+                                <input type="text" id="first_name" name="first_name" class="form-control"
+                                       placeholder="Jhon" required>
+                            </div>
+                            <div class="form-group col" style="position:relative;">
+                                <label for='last_name' style="display:block">Last Name</label>
+                                <input type="text" name="last_name" id="last_name" class="form-control"
+                                       placeholder="Doe" required>
+                            </div>
+                        </div>
+                        <div class="form-group" style="position:relative;">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" class="form-control mb-1" name="email"
+                                   placeholder="jhonedoe@gmail.com" required>
+
+                        </div>
+                        <div class="form-row mb-1">
+                            <div class="form-group col">
+                                <label for="password">Password</label>
+                                <input type="password" id="password" name="password" class="form-control"
+                                       placeholder="*******************" required>
+
+                            </div>
+                            <div class="form-group col">
+                                <label for="password_confirmation">Confirm Password</label>
+                                <input type="password" id="password_confirmation" class="form-control"
+                                       placeholder="*******************" required>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-info form-control">Register</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="Add-Movie">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content form-wrapper">
+                <div class="close-box" data-dismiss="modal">
+                    <i class="fa fa-times fa-2x"></i>
+                </div>
+                <div class="container-fluid mt-5">
+                    <form action="registration" method="post" id="RegisterationForm">
+                        {% csrf_token %}
+                        <div class="form-group text-center pb-2">
+                            <h4>Upload Movie</h4>
+                        </div>
+                        <div class="form-group col">
+                            <label for="movie-title">Movie Title</label>
+                            <input type="text" id="movie-title" name="movie-title" class="form-control"
+                                   placeholder="movie-title" required>
+                        </div>
+
+                        <div class="form-group col">
+                            <label class="form-label" for="File">File input</label>
+                            <input type="file" class="form-control" id="File"/>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-info form-control">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+
+ <script>
+        options = ['Horror', 'Fiction', 'asdd', 'ascacac', 'ascaca']
+        for (var i = 0; i <= options.length; i++) {
+            options += "<option>" + options[i] + "</option>";
+        }
+        document.getElementById("catagory").innerHTML = options;
+    </script>
+    <script>
+        var start = 1900;
+        var end = new Date().getFullYear();
+        var options = "";
+        for (var year = start; year <= end; year++) {
+            options += "<option>" + year + "</option>";
+        }
+        document.getElementById("year").innerHTML = options;
+    </script>
+ <div class="form-row mb-1">
+                                                <div class="form-group col">
+                                                    <label for="Catagory">Catagory</label>
+                                                    <select class="form-control" id="catagory" name="catagory">
+
+                                                    </select>
+                                                    <input type="text" id="catagory" name="catagory"
+                                                           class="form-control"
+                                                           placeholder="Catagory" required>
+
+                                                </div>
+                                                <div class="form-group col">
+                                                    <label for="year">Year</label>
+                                                    <select class="form-control" id="year" name="cars">
+                                                    </select>
+
+                                                </div>
+                                            </div>
